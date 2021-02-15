@@ -39,7 +39,6 @@ if($_POST['submit']){
     $city = $_POST['city'];
     $groupid = $_POST['groupid'];
     $query = mysqli_query($conn,"UPDATE studentsinfo set fname='$fname', lname='$lname', city='$city', groupid='$groupid' where id='$a'");
-    
     if(!$fname = filter_input(INPUT_POST, 'fname')){
         die("First Name field is Required. Please enter First Name");
     }
@@ -57,9 +56,7 @@ if($_POST['submit']){
         //header("location: update.php");
     }
     else { echo "Record Not modified";}
-    }
-
-   
+    } 
 $conn->close();
 ?>
 </body>
