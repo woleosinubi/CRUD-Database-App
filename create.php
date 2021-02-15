@@ -1,4 +1,5 @@
-<?php include 'db.php' ;
+<?php 
+include 'db.php' ;
 if(!$fname = filter_input(INPUT_POST, 'fname')){
     die("First Name field is Required. Please go back and enter First Name");
 }
