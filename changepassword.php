@@ -1,3 +1,15 @@
+
+
+
+<?php
+
+session_start();
+if(!isset($_SESSION['AdminLoginEmail']))
+{
+  header("location:admin.php");
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +20,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="image/header.css">
+<link rel="stylesheet" type="text/css" href="header.css">
 </head>
 
 
@@ -17,10 +29,7 @@
 
 
 <style>
-	
-	body > div > div > div > form > div:nth-child(3) > input{
-	margin-bottom:90px;
-}
+
 
 .login-container{
     margin-top: 5%;
@@ -45,37 +54,36 @@
     color: #fff;
 }
 .login-container form{
-    padding: 10%;
+    padding: 3%;
+    margin-top:20px;
+    margin-left:50px;
+
 }
 .btnSubmit
 {
-    width: 50%;
+    width: 30%;
     border-radius: 1rem;
-    padding: 1.5%;
+    padding: 2.5%;
     border: none;
     cursor: pointer;
+    margin-top:20px;
+    margin-left:170px;
+
 
 }
 .login-form-1 .btnSubmit{
     font-weight: 600;
     color: #fff;
     background-color: #0062cc;
+    
 }
 .login-form-2 .btnSubmit{
     font-weight: 600;
     color: #0062cc;
     background-color: #fff;
+   
 }
-.login-form-2 .ForgetPwd{
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-}
-.login-form-1 .ForgetPwd{
-    color: #0062cc;
-    font-weight: 600;
-    text-decoration: none;
-}
+
 
 </style>
 
@@ -85,7 +93,7 @@
 	  
 <?php
 
-include "header.php";
+include "aheader.php";
 
 ?>
 
@@ -93,18 +101,18 @@ include "header.php";
             <div class="row">
                 <div class="col-md-6 login-form-1">
                     <h3>Change Password</h3>
-                    <form>
+                    <form  action="valinsert.php" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                            <input type="email" class="form-control" placeholder="Your Email *" name="email" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                            <input type="password" class="form-control" placeholder="Your Password *" name="pwd" />
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btnSubmit" value="Login" />
+                            <input type="submit" class="btnSubmit" name="submit" value="Login" />
                         </div>
                         <div class="form-group">
-                            <a href="#" class="ForgetPwd">Forget Password?</a>
+                         
                         </div>
                     </form>
                 </div>

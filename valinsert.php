@@ -1,28 +1,35 @@
-							<?php
-$email=$_POST["username"];
-$password=$_POST["pw"];
+
+<?php
 
 
-include 'dbconnection.php';
+
+require_once('dbconnect.php');
+
+if($_POST['submit'])
+{
+
+
+$email=$_POST['email'];
+$pwd=$_POST['pwd'];
+
+
+$my_query="";
+
 		
-$del="delete from login"; 
-if(!(mysql_query($del)))
-{
-	echo"password cant be changed";
-}
-else
-{
-	$ins="insert into login values('$email','$password')";
-if(!(mysql_query($ins)))
-{
-echo " unsucessful";
+$my_query= " UPDATE  login SET pwd ='$pwd' where email ='$email'";
+$data =mysqli_query($connection,$my_query);
+
+echo "<script>alert('Password Changed Back to homepage')</script>";
+exit;
+
+
 }
 else	
 {
-	
-	header("location:index.php");
+	echo "<script>alert('Password Not Changed')</script>";
+
 }
 	
-}
+
 	
 ?>
