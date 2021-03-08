@@ -1,54 +1,30 @@
+<?php 
 
-<?php
-require 'db.php'; 
-$sql = "select * from studentsinfo";
-$result = $conn->query($sql);?>
-<html>
-<head>
-    <style>
-        a.top {
-            margin-right:20px;
-            font-size:20px;
-            color:red;
+    require_once("db.php");
+
+    if(isset($_POST['update']))
+    {
+        $sn = $_GET['sn'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+        $query = " update contact set sn= '".$sn."', name='".$name."', email='".$email."', message='".$message."' where sn='".$sn."'";
+        $result = mysqli_query($con,$query);
+
+        if($result)
+        {
+            header("location:data.php");
         }
-        </style>
-<title> Update Data</title>
-</head>
-<body>
-    <a href="form.php" class="top">Create Data </a>
-    <a href="update.php" class="top">Update/Delete Data </a>
-    <a href="read.php" class="top">Retrieve Data </a>
-<hr>
-<table border="1" cellpadding="5">
-<tr>
-<th>ID</th><th>First Name</th><th>Last Name</th>
-<th>City</th><th>Group ID</th> <th>Create Date</th><th>Edit</th>
-<th>Delete</th>
-</tr>
-<?php 
-if($result ->num_rows > 0) {
-    while($row = $result ->fetch_assoc()){
-?>
-<tr>
-<td><?php echo $row["id"]; ?></td>
-<td><?php echo $row["fname"]; ?></td>
-<td><?php echo $row["lname"]; ?></td>
-<td><?php echo $row["city"]; ?></td>
-<td><?php echo $row["groupid"]; ?></td>
-<td><?php echo $row["createdate"]; ?></td>
-<td><a href="updatesingle.php?id=<?php echo $row['id']; ?>">Update</a></td>
-<td><a href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-</tr>
+        else
+        {
+            echo ' Please Check Your Query ';
+        }
+    }
+    else
+    {
+        header("location:edit.php");
+    }
 
-<?php 
-}
-}
-else
-{
-    echo "no results";
-}
-$conn->close();
+
 ?>
-</table>
-</body>
-</html>
