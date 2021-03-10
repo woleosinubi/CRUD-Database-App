@@ -1,0 +1,46 @@
+body {
+  background-color: #90c2d1;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 80%;
+}
+section {
+  width: 100%;
+  height: auto;
+}
+.gotopbtn {
+  position: fixed;
+  width: 33px;
+  height: 32px;
+
+  border-radius: 50px;
+  bottom: 40px;
+  right: 50px;
+}
+
+.navbar {
+  background-color: #2ab2e2;
+  padding: 1rem 8rem;
+  position: relative;
+}
+#navbarSupportedContent > ul > li:nth-child(n) > a {
+  color: white;
+  font-size: 17px;
+  padding: 8px 18px;
+  font-family: bold;
+  border: none;
+}
+
+#navbarSupportedContent > ul > li:nth-child(n) > a:hover {
+  color: #fbc932;
+  font-size: 17px;
+  transition: 0.6s all;
+}
+#navbarSupportedContent > button {
+  border-radius: 30px;
+  padding: 0.2rem 0.8rem;
+  font-weight: 600;
+}
+#navbarSupportedContent > form {
+  margin-top: 8px;
+}

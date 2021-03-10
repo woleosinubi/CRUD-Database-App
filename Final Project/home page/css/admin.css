@@ -1,0 +1,29 @@
+body {
+  background-color: #2ab2e2;
+
+  margin-bottom: 0%;
+}
+
+.navbar {
+  background: #2ab2e2;
+  padding: 1rem 8rem;
+}
+#navbarSupportedContent > ul > li:nth-child(n) > a {
+  color: rgb(233, 164, 17);
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+#navbarSupportedContent > ul > li:nth-child(n) > a:hover {
+  color: rgb(240, 238, 235);
+}
+#navbarSupportedContent > button {
+  border-radius: 30px;
+  padding: 0.2rem 0.8rem;
+  font-weight: 600;
+}
+.container {
+  padding-top: 45px;
+  padding-bottom: -145px;
+  width: auto;
+}
